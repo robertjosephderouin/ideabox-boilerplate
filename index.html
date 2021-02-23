@@ -6,7 +6,37 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body>
-
+    <nav>
+      <h1>IdeaBox</h1>
+      <h2>Filter Starred Ideas</h2>
+      <button type="button">Show Starred Ideas</button>
+    </nav>
+    <main>
+      <form>
+        <label for="title">Title</label>
+        <input class="title form-style" name="title" type="text"></input>
+        <label for="body">Body</label>
+        <input class="body form-style" name="body" type="text"></input>
+        <button type="button">Save</button>
+        <div class="search-idea-container">
+          <button type="button" class="magnifying-glass form style" ></button>
+          <input class="search-ideas form-style" name="search-ideas" value="Search Ideas" type="text"></input>
+        </div>
+      </form>
+      <section>
+        <article>
+          <div>
+            <input type="checkbox"></input>
+            <button></button>
+          </div>
+          <h3>Idea Title</h3>
+          <p>Idea body</p>
+          <div>
+            <button>Comment</button>
+          </div>
+        </article>
+      </section>
+    </main>
     <script src="./src/main.js"></script>
   </body>
 </html>

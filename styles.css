@@ -1,0 +1,86 @@
+/* Element Selectors */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+body {
+  font-family: Open Sans, Light;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  background-color: #A9AAD2;
+  height: 55%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+h1,
+h3 {
+  font-family: Open Sans, Bold;
+}
+
+h1,
+nav {
+  background-color: #1F1F3D;
+  width: 15%
+}
+
+section {
+  background-color: #EAEAF4;
+  height: 45%
+}
+
+input {
+  width: 25%;
+}
+
+/* Form Children*/
+.form-style {
+  border: 2px solid #1F1F3D;
+}
+
+.title {
+  min-height: 1.5vw;
+}
+
+.body {
+  min-height: 5vw;
+}
+
+.search-ideas {
+  width: 100%;
+}
+
+/* Buttons */
+.search-idea-container {
+  display: flex;
+  width: 25%
+}
+
+.magnifying-glass {
+background-image: url('assets/search.svg');
+background-size: 20px;
+background-repeat: no-repeat;
+background-color: #1F1F3D;
+background-position: center;
+border: none;
+margin-right: 0;
+height: 40px;
+width: 40px;
+}
