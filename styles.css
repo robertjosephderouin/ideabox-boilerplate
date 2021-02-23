@@ -50,3 +50,16 @@ input {
   width: 25%;
 
 }
+
+/* Buttons */
+
+.magnifying-glass {
+background-image: url('assets/search.svg');
+background-size: 20px;
+background-repeat: no-repeat;
+background-color: #1F1F3D;
+background-position: center;
+border: none;
+height: 40px;
+width: 40px;
+}
