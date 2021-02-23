@@ -1,0 +1,52 @@
+/* Element Selectors */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+body {
+  font-family: Open Sans, Light;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  background-color: #A9AAD2;
+  height: 55%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+h1,
+h3 {
+  font-family: Open Sans, Bold;
+}
+
+h1,
+nav {
+  background-color: #1F1F3D;
+  width: 15%
+}
+
+section {
+  background-color: #EAEAF4;
+  height: 45%
+}
+
+input {
+  width: 25%;
+
+}
