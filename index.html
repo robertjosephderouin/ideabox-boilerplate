@@ -6,34 +6,37 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body>
-    <h1>IdeaBox</h1>
     <nav>
+      <h1>IdeaBox</h1>
       <h2>Filter Starred Ideas</h2>
       <button type="button">Show Starred Ideas</button>
     </nav>
     <main>
       <form>
-        <input>Title</input>
-        <input>Body</input>
+        <label for="title">Title</label>
+        <input class="title" name="title" type="text"></input>
+        <label for="body">Body</label>
+        <input class="body" name="body" type="text"></input>
         <button type="button">Save</button>
-        <input>Search Ideas
+        <div class="search-idea-container">
           <button type="button">*Magnifying Glass Image*</button>
-        </input>
+          <input for="search-ideas" name="search-ideas" value="Search Ideas" type="text"></input>
+        </div>
       </form>
       <section>
-        <section>
-          <section>
+        <article>
+          <div>
             <input>
             </input>
             <button>
             </button>
-          </section>
+          </div>
           <h3>Idea Title</h3>
           <p>Idea body</p>
-          <section>
+          <div>
             <button>Comment</button>
-          </section>
-        </section>
+          </div>
+        </article>
       </section>
     </main>
     <script src="./src/main.js"></script>
