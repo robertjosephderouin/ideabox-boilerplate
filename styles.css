@@ -29,15 +29,26 @@ form {
 }
 
 h1,
-h3,
-button {
-  font-family: Open Sans, Bold;
-}
-
-h1,
 nav {
   background-color: #1F1F3D;
-  width: 15%
+  font-size: 20px;
+  margin-left: 10px;
+  color: white;
+  width: 20%;
+}
+
+/* h1 {
+padding-left: 15px;
+padding-bottom: 20px;
+width: 100%;
+border-bottom: 2px solid #5356A4;
+} */
+
+h2 {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: #BFBFDD;
+  font-size: 13px;
 }
 
 section {
@@ -63,7 +74,7 @@ input {
 .search-input {
   border: none;
   font-family: 'Open Sans';
-  font-size: 1em;
+  font-size: .9em;
   color: #5356A4;
   width: 100%;
 }
@@ -72,6 +83,7 @@ input {
  width: 50%;
  font-weight: bold;
  margin: 10px;
+ color: #353567;
 }
 
 .input-wrapper {
@@ -79,7 +91,28 @@ input {
   flex-direction: column;
 }
 
+/* Nav Children */
+.nav-wrapper {
+  width: 100%;
+  border-top: 1px solid #5356A4;
+  border-bottom: 1px solid #5356A4;
+}
+
 /* Buttons */
+.starred-ideas-btn {
+ color: white;
+ font-family: Open Sans;
+ font-weight: bold;
+ font-size: 17px;
+ background-color: #5356A5;
+ height: 45px;
+ width: 215px;
+ padding: 12px 0 12px 0;
+ margin-left: 10px;
+ margin-bottom: 10px;
+ border: 1px solid #373669;
+}
+
 .save-btn {
  border: 2px solid #5356A4;
  background-color: #353567;
@@ -92,7 +125,7 @@ input {
 background-image: url('assets/search.svg');
 background-size: 2em;
 background-repeat: no-repeat;
-background-color: #1F1F3D;
+background-color: #353567;
 background-position: center;
 border: none;
 margin-right: 0;
