@@ -1,7 +1,6 @@
 class Idea {
   constructor(){
     this.id = new Date().getMilliseconds();
-    this.id = new Date();
     this.title = "";
     this.body = "";
     this.star = false;
