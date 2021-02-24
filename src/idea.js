@@ -1,8 +1,8 @@
 class Idea {
-  constructor(){
+  constructor(inputTitle, inputBody){
     this.id = new Date().getMilliseconds();
-    this.title = "";
-    this.body = "";
+    this.title = inputTitle;
+    this.body = inputBody;
     this.star = false;
   }
   saveToStorage(){
