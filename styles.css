@@ -37,13 +37,6 @@ nav {
   width: 20%;
 }
 
-/* h1 {
-padding-left: 15px;
-padding-bottom: 20px;
-width: 100%;
-border-bottom: 2px solid #5356A4;
-} */
-
 h2 {
   margin-left: 10px;
   margin-bottom: 20px;
@@ -52,6 +45,7 @@ h2 {
 }
 
 section {
+  padding-top: 15px;
   background-color: #EAEAF4;
   height: 45%
 }
@@ -59,6 +53,17 @@ section {
 input {
   border: 2px solid #5356A4;
   height: 30px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid #1F1F3D;
+  height: 240px;
+  width: 210px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Form Children*/
@@ -98,6 +103,11 @@ input {
   border-bottom: 1px solid #5356A4;
 }
 
+/* Ideas Children */
+article > p {
+  max-height: 40px;
+  overflow: hidden;
+}
 /* Buttons */
 .starred-ideas-btn {
  color: white;
