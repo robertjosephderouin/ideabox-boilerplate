@@ -212,3 +212,9 @@ margin-right: 0;
 height: 100%;
 width: 20%;
 }
+
+/* Other */
+
+.hidden {
+  display: none;
+}
