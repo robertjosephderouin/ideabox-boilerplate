@@ -32,7 +32,7 @@ function renderNewCard() {
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newCardArray.length; i++) {
     savedCardGrid.innerHTML +=
-      `<article id=${newCardArray[i].id}>
+      `<article class="new-card" id=${newCardArray[i].id}>
         <div class="article-top">
           <input type="checkbox" name="star" value="star" id="star"></input>
           <label for="star"></label>
@@ -45,6 +45,8 @@ function renderNewCard() {
           <p>Comment</p>
         </div>
       </article>`;
+      var xButton = document.getElementById(newCardArray[i].id).querySelector('.x-btn');
+      xButton.addEventListener('click', deleteSavedCard);
   }
 }
 
@@ -53,5 +55,15 @@ function createNewCard(){
   newCardArray.push(newCard);
   clearTitleText();
   clearBodyText();
+  renderNewCard();
+}
+
+function deleteSavedCard(event) {
+  var clickedSavedCard = event.target.closest('.new-card');
+  for (i = 0; i < newCardArray.length; i++) {
+    if (newCardArray[i].id === Number(clickedSavedCard.id)) {
+      newCardArray.splice(i, 1);
+    };
+  };
   renderNewCard();
 }
