@@ -1,5 +1,6 @@
 class Idea {
   constructor(){
+    this.id = new Date().getMilliseconds();
     this.id = new Date();
     this.title = "";
     this.body = "";
@@ -12,6 +13,6 @@ class Idea {
     //To Be Implemented
   }
   updateIdea(){
-    //To Be Implemented
+    //To be Implemented
   }
 }
