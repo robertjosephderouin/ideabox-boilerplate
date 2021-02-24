@@ -4,8 +4,6 @@ html {
   width: 100%;
 }
 
-
-
 body {
   font-family: Open Sans, Light;
   display: flex;
@@ -31,56 +29,192 @@ form {
 }
 
 h1,
-h3 {
-  font-family: Open Sans, Bold;
-}
-
-h1,
 nav {
   background-color: #1F1F3D;
-  width: 15%
+  font-size: 20px;
+  margin-left: 10px;
+  color: white;
+  width: 20%;
+  min-width: 250px;
+}
+
+h2 {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  color: #BFBFDD;
+  font-size: 13px;
+}
+
+h3 {
+  margin: 5px 15px 5px 10px;
 }
 
 section {
+  padding-top: 15px;
   background-color: #EAEAF4;
   height: 45%
 }
 
 input {
-  width: 25%;
+  border: 2px solid #5356A4;
+  height: 30px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #1F1F3D;
+  height: 230px;
+  width: 210px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Form Children*/
-.form-style {
-  border: 2px solid #1F1F3D;
+.search-idea-container {
+  display: flex;
+  border: 2px solid #5356A4;
 }
 
-.title {
-  min-height: 1.5vw;
+.body-input {
+  height: 70px;
 }
 
-.body {
-  min-height: 5vw;
-}
-
-.search-ideas {
+.search-input {
+  border: none;
+  font-family: 'Open Sans';
+  font-size: .9em;
+  color: #5356A4;
   width: 100%;
 }
 
-/* Buttons */
-.search-idea-container {
+.form-style {
+ width: 50%;
+ font-weight: bold;
+ margin: 10px;
+ color: #353567;
+}
+
+.input-wrapper {
   display: flex;
-  width: 25%
+  flex-direction: column;
+}
+
+/* Nav Children */
+.nav-wrapper {
+  width: 100%;
+  border-top: 1px solid #5356A4;
+  border-bottom: 1px solid #5356A4;
+}
+
+/* Ideas Children */
+article > p {
+  height: 110px;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
+div > p {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.article-top {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F1F3D;
+}
+
+.article-bottom {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  background-color: #5356A5;
+}
+/* Buttons */
+input[type="checkbox"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+input[type="checkbox"] + label {
+  background-image: url('assets/star-active.svg');
+  background-color: #1F1F3D;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+}
+
+.comment-btn {
+
+}
+
+.comment-btn {
+  background-image: url('assets/comment.svg');
+  background-color: #5356A5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+  height: 30px;
+  border: none;
+}
+
+.x-btn {
+  background-image: url('assets/delete.svg');
+  background-color: #1F1F3D;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+  height: 30px;
+  border: none;
+}
+
+.starred-ideas-btn {
+ color: white;
+ font-family: Open Sans;
+ font-weight: bold;
+ font-size: 17px;
+ background-color: #5356A5;
+ height: 45px;
+ width: 215px;
+ padding: 12px 0 12px 0;
+ margin-left: 10px;
+ margin-bottom: 10px;
+ border: 1px solid #373669;
+}
+
+.save-btn {
+ border: 2px solid #5356A4;
+ background-color: #353567;
+ height: 40px;
+ color: white;
+ font-size: 1em;
 }
 
 .magnifying-glass {
 background-image: url('assets/search.svg');
-background-size: 20px;
+background-size: 2em;
 background-repeat: no-repeat;
-background-color: #1F1F3D;
+background-color: #353567;
 background-position: center;
 border: none;
 margin-right: 0;
-height: 40px;
-width: 40px;
+height: 100%;
+width: 20%;
+}
+
+/* Other */
+
+.hidden {
+  display: none;
 }

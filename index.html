@@ -8,31 +8,39 @@
   <body>
     <nav>
       <h1>IdeaBox</h1>
-      <h2>Filter Starred Ideas</h2>
-      <button type="button">Show Starred Ideas</button>
+      <div class="nav-wrapper">
+        <h2>Filter Starred Ideas</h2>
+        <button class="starred-ideas-btn" type="button">Show Starred Ideas</button>
+      </div>
     </nav>
     <main>
       <form>
-        <label for="title">Title</label>
-        <input class="title form-style" name="title" type="text"></input>
-        <label for="body">Body</label>
-        <input class="body form-style" name="body" type="text"></input>
-        <button type="button">Save</button>
-        <div class="search-idea-container">
-          <button type="button" class="magnifying-glass form style" ></button>
-          <input class="search-ideas form-style" name="search-ideas" value="Search Ideas" type="text"></input>
+        <div class="input-wrapper form-style">
+          <label for="title">Title</label>
+          <input type="text" name="title"></input>
+        </div>
+        <div class="input-wrapper form-style">
+          <label for="body">Body</label>
+          <input class="body-input" type="text" name="body"></input>
+        </div>
+        <button class="save-btn form-style" type="button">Save</button>
+        <div class="search-idea-container form-style">
+          <button type="button" class="magnifying-glass"></button>
+          <input class="search-input" type="text" name="search-ideas" value="Search Ideas"></input>
         </div>
       </form>
       <section>
         <article>
-          <div>
-            <input type="checkbox"></input>
-            <button></button>
+          <div class="article-top">
+            <input type="checkbox" name="star" value="star" id="star"></input>
+            <label for="star"></label>
+            <button class="x-btn"></button>
           </div>
           <h3>Idea Title</h3>
-          <p>Idea body</p>
-          <div>
-            <button>Comment</button>
+          <p>Idea body.Don't ever play yourself. Every chance I get, I water the plants, Lion! Cloth talk.</p>
+          <div class="article-bottom">
+            <button class="comment-btn"></button>
+            <p>Comment</p>
           </div>
         </article>
       </section>
