@@ -35,6 +35,7 @@ nav {
   margin-left: 10px;
   color: white;
   width: 20%;
+  min-width: 250px;
 }
 
 h2 {
@@ -110,19 +111,29 @@ article {
 
 /* Ideas Children */
 article > p {
-  height: 80px;
+  height: 110px;
   margin-top: 0;
+}
+
+div > p {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 7px;
 }
 
 .article-top {
   width: 100%;
-  height:20px;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   background-color: #1F1F3D;
 }
 
 .article-bottom {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
   background-color: #5356A5;
 }
 /* Buttons */
@@ -141,6 +152,21 @@ input[type="checkbox"] + label {
   width: 25px;
 }
 
+.comment-btn {
+
+}
+
+.comment-btn {
+  background-image: url('assets/comment.svg');
+  background-color: #5356A5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+  height: 30px;
+  border: none;
+}
+
 .x-btn {
   background-image: url('assets/delete.svg');
   background-color: #1F1F3D;
@@ -148,8 +174,7 @@ input[type="checkbox"] + label {
   background-size: cover;
   background-position: center;
   width: 25px;
-  height: 20px;
-  /* margin-right: 8px; */
+  height: 30px;
   border: none;
 }
 
