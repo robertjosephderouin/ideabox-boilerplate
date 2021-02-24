@@ -46,8 +46,7 @@ h2 {
 }
 
 h3 {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 5px 15px 5px 10px;
 }
 
 section {
@@ -66,7 +65,7 @@ article {
   flex-direction: column;
   justify-content: space-between;
   border: 2px solid #1F1F3D;
-  height: 240px;
+  height: 230px;
   width: 210px;
   margin-left: 10px;
   margin-right: 10px;
@@ -113,6 +112,8 @@ article {
 article > p {
   height: 110px;
   margin-top: 0;
+  margin-left: 10px;
+  margin-right: 25px;
 }
 
 div > p {
