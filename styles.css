@@ -154,10 +154,6 @@ input[type="checkbox"] + label {
 }
 
 .comment-btn {
-
-}
-
-.comment-btn {
   background-image: url('assets/comment.svg');
   background-color: #5356A5;
   background-repeat: no-repeat;
