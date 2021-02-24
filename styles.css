@@ -44,6 +44,11 @@ h2 {
   font-size: 13px;
 }
 
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 section {
   padding-top: 15px;
   background-color: #EAEAF4;
@@ -58,7 +63,7 @@ input {
 article {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 2px solid #1F1F3D;
   height: 240px;
   width: 210px;
@@ -105,10 +110,28 @@ article {
 
 /* Ideas Children */
 article > p {
-  max-height: 40px;
-  overflow: hidden;
+  height: 80px;
+  margin-top: 0;
+}
+
+.article-top {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F1F3D;
+}
+
+.article-bottom {
+  background-color: #5356A5;
 }
 /* Buttons */
+.x-btn {
+  background-image: url('assets/delete.svg');
+  background-color: #1F1F3D;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+}
+
 .starred-ideas-btn {
  color: white;
  font-family: Open Sans;
