@@ -1,15 +1,36 @@
-# Ideabox Group Project
+# Title: IdeaBox
 
-Every developer has more ideas than time. As David Allen likes to say "the human brain is for creating ideas, not remembering them." In this project, we'll be building an application that records and archives our ideas (good and bad alike).
+A [Front-End Project] by [Caroline Eubanks](https://github.com/cmeubanks) & [Shawn McMahon](https://github.com/shawnmcmahon) & [Robert DeRouin](https://github.com/robertjosephderouin)
 
-Throughout the project, one of our focuses will be on providing a fluid and responsive client-side interface. To this end, we'll rely on JavaScript to implement snappy filtering in the browser, and `localStorage` to persist our wonderful ideas between sessions.
+* Project Manager: [Heather Faerber](https://github.com/hfaerber)
 
-## Learning Goals
+## Overview
 
-* Gain an understanding of how to write clean HTML and CSS to match a provided comp
-* Understand how to implement client-side data persistence using `localStorage`
-* Understand what it looks like to have a separate data model (using a class) and DOM model
-* Incorporate & iterate over arrays in order to filter what is being displayed
-* Craft code with clean style, using small functions that show trends toward DRYness and SRP
+An application that records and archives our ideas.
 
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/ideabox-group.html)
+## Functionality
+
+* Current:
+
+* Future Enhancements:
+
+* Known Issues/Bugs:
+
+## Technologies
+
+1. HTML
+2. CSS
+3. JavaScript
+4. GitHub (website hosting and source code management)
+
+## Contributors
+
+* Co-Creator: [Robert DeRouin](https://github.com/robertjosephderouin)
+* Co-Creator: [Shawn McMahon](https://github.com/shawnmcmahon)
+* Co-Creator: [Caroline Eubanks](https://github.com/cmeubanks)
+* Project Manager: [Heather Faerber](https://github.com/hfaerber)
+
+## Resources
+* Project Description: https://frontend.turing.io/projects/module-1/ideabox-group.html
+* Team GitHub Repo: https://github.com/robertjosephderouin/ideabox-boilerplate
+* GitHub Hosted URL: https://robertjosephderouin.github.io/hang-in-there-boilerplate/](https://robertjosephderouin.github.io/ideabox-boilerplate/
