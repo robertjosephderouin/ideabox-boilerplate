@@ -13,14 +13,18 @@
     </nav>
     <main>
       <form>
-        <label for="title">Title</label>
-        <input class="title form-style" name="title" type="text"></input>
-        <label for="body">Body</label>
-        <input class="body form-style" name="body" type="text"></input>
-        <button type="button">Save</button>
-        <div class="search-idea-container">
-          <button type="button" class="magnifying-glass form style" ></button>
-          <input class="search-ideas form-style" name="search-ideas" value="Search Ideas" type="text"></input>
+        <div class="input-wrapper form-style">
+          <label for="title">Title</label>
+          <input type="text" name="title"></input>
+        </div>
+        <div class="input-wrapper form-style">
+          <label for="body">Body</label>
+          <input class="body-input" type="text" name="body"></input>
+        </div>
+        <button class="save-btn form-style" type="button">Save</button>
+        <div class="search-idea-container form-style">
+          <button type="button" class="magnifying-glass"></button>
+          <input class="search-input" type="text" name="search-ideas" value="Search Ideas"></input>
         </div>
       </form>
       <section>

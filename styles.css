@@ -4,8 +4,6 @@ html {
   width: 100%;
 }
 
-
-
 body {
   font-family: Open Sans, Light;
   display: flex;
@@ -31,7 +29,8 @@ form {
 }
 
 h1,
-h3 {
+h3,
+button {
   font-family: Open Sans, Bold;
 }
 
@@ -47,40 +46,56 @@ section {
 }
 
 input {
-  width: 25%;
+  border: 2px solid #5356A4;
+  height: 30px;
 }
 
 /* Form Children*/
-.form-style {
-  border: 2px solid #1F1F3D;
+.search-idea-container {
+  display: flex;
+  border: 2px solid #5356A4;
 }
 
-.title {
-  min-height: 1.5vw;
+.body-input {
+  height: 70px;
 }
 
-.body {
-  min-height: 5vw;
-}
-
-.search-ideas {
+.search-input {
+  border: none;
+  font-family: 'Open Sans';
+  font-size: 1em;
+  color: #5356A4;
   width: 100%;
 }
 
-/* Buttons */
-.search-idea-container {
+.form-style {
+ width: 50%;
+ font-weight: bold;
+ margin: 10px;
+}
+
+.input-wrapper {
   display: flex;
-  width: 25%
+  flex-direction: column;
+}
+
+/* Buttons */
+.save-btn {
+ border: 2px solid #5356A4;
+ background-color: #353567;
+ height: 40px;
+ color: white;
+ font-size: 1em;
 }
 
 .magnifying-glass {
 background-image: url('assets/search.svg');
-background-size: 20px;
+background-size: 2em;
 background-repeat: no-repeat;
 background-color: #1F1F3D;
 background-position: center;
 border: none;
 margin-right: 0;
-height: 40px;
-width: 40px;
+height: 100%;
+width: 20%;
 }
