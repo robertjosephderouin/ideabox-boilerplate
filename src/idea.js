@@ -1,4 +1,4 @@
-export class Idea {
+class Idea {
   constructor(){
     this.id = new Date();
     this.title = "";
@@ -15,6 +15,3 @@ export class Idea {
     //To Be Implemented
   }
 }
-
-//After adding build step
-//module.exports = Idea;
