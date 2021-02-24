@@ -52,7 +52,8 @@ h3 {
 section {
   padding-top: 15px;
   background-color: #EAEAF4;
-  height: 45%
+  height: 45%;
+  display: flex;
 }
 
 input {
