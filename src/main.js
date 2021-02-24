@@ -7,10 +7,10 @@
 var saveButton = document.querySelector('#save-btn');
 var inputTitle = document.querySelector('#title-input');
 var inputBody = document.querySelector('#body-input');
-
-
+var newCard
 
 //*Data Goes Here*
+var newCardArray = [];
 
 
 
@@ -19,7 +19,17 @@ saveButton.addEventListener('click', createNewCard);
 
 
 //*Functions Go Here*
+function clearTitleText(){
+  inputTitle.value = "";
+}
+
+function clearBodyText(){
+  inputBody.value = "";
+}
+
 function createNewCard(){
-  var newCard = new Idea(inputTitle.value, inputBody.value);
-  console.log(newCard);
+  newCard = new Idea(inputTitle.value, inputBody.value);
+  newCardArray.push(newCard);
+  clearTitleText();
+  clearBodyText();
 }
