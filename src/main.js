@@ -23,6 +23,12 @@ inputTitle.addEventListener('input', checkforUserInput);
 inputBody.addEventListener('input', checkforUserInput);
 
 //*Functions Go Here*
+
+function checkforUserInput() {
+  
+}
+
+
 function clearTitleText(){
   inputTitle.value = "";
 }
