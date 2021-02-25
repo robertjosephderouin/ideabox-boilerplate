@@ -19,6 +19,8 @@ var newCardArray = [];
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 
+inputTitle.addEventListener('input', checkforUserInput);
+inputBody.addEventListener('input', checkforUserInput);
 
 //*Functions Go Here*
 function clearTitleText(){
