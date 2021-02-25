@@ -154,6 +154,15 @@ input[type="checkbox"] + label {
   width: 25px;
 }
 
+input[type="checkbox"]:checked + label {
+  background-image: url('assets/star.svg');
+  background-color: #1F1F3D;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+}
+
 .comment-btn {
   background-image: url('assets/comment.svg');
   background-color: #5356A5;
