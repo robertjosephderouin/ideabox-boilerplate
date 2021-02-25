@@ -15,6 +15,7 @@ var newCardArray = [];
 
 
 
+
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 
@@ -31,7 +32,7 @@ function clearBodyText(){
 function renderNewCard() {
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newCardArray.length; i++) {
-    savedCardGrid.innerHTML +=
+    savedCardGrid.insertAdjacentHTML('beforeend',
       `<article class="new-card" id=${newCardArray[i].id}>
         <div class="article-top">
           <input type="checkbox" name="star" value="star" id="star"></input>
@@ -44,7 +45,7 @@ function renderNewCard() {
           <button class="comment-btn"></button>
           <p>Comment</p>
         </div>
-      </article>`;
+      </article>`);
       var xButton = document.getElementById(newCardArray[i].id).querySelector('.x-btn');
       xButton.addEventListener('click', deleteSavedCard);
   }
