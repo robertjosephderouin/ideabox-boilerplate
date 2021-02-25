@@ -219,6 +219,20 @@ height: 100%;
 width: 20%;
 }
 
+.input-missing {
+  border: 2px solid #5356A4;
+  height: 40px;
+  color: white;
+  font-size: 1em;
+  width: 50%;
+  font-weight: bold;
+  margin: 10px;
+  color: #353567;
+
+  background-color: #EAEAF4;
+  cursor: help;
+}
+
 /* Other */
 
 .hidden {
