@@ -14,25 +14,25 @@
       </div>
     </nav>
     <main>
-      <form>
+      <form class="add-card-form">
         <div class="input-wrapper form-style">
           <label for="title">Title</label>
-          <input id="titleInput" type="text" name="title"></input>
+          <input id="titleInput" type="text" name="title"/>
         </div>
         <div class="input-wrapper form-style">
           <label for="body">Body</label>
-          <input id="bodyInput" class="body-input" type="text" name="body"></input>
+          <input id="bodyInput" class="body-input" type="text" name="body"/>
         </div>
         <button id="saveBtn" class="input-missing" type="button">Save</button>
         <div class="search-idea-container form-style">
           <button type="button" class="magnifying-glass"></button>
-          <input class="search-input" type="text" name="search-ideas" value="Search Ideas"></input>
+          <input class="search-input" type="text" name="search-ideas" value="Search Ideas"/>
         </div>
       </form>
       <section id="savedCardGrid">
         <article id="card">
           <div class="article-top">
-            <input type="checkbox" name="star" value="star" id="star"></input>
+            <input id="star" class="star" type="checkbox" name="star" value="star"/>
             <label for="star"></label>
             <button class="x-btn"></button>
           </div>

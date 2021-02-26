@@ -8,6 +8,8 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
+var favoriteStar = document.querySelector('#star');
+
 var newCard
 
 //*Data Goes Here*
@@ -18,12 +20,11 @@ var newCardArray = [];
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
-
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
+// savedCardGrid.addEventListener('click', toggleFavorite);
 
-//*Functions Go Here*
 function disableButton() {
   saveButton.disabled = true;
 }
@@ -60,8 +61,15 @@ function renderNewCard() {
     savedCardGrid.insertAdjacentHTML('beforeend',
       `<article class="new-card" id=${newCardArray[i].id}>
         <div class="article-top">
-          <input type="checkbox" name="star" value="star" id="star"></input>
-          <label for="star"></label>
+          <form class="star-form">
+            <input
+              class="star"
+              type="checkbox"
+              name="star-${newCardArray[i].id}"
+              value="star-${newCardArray[i].id}"
+              id="star-${newCardArray[i].id}"/>
+            <label for="star-${newCardArray[i].id}"></label>
+          </form>
           <button class="x-btn"></button>
         </div>
         <h3>${newCardArray[i].title}</h3>
