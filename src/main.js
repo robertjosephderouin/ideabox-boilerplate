@@ -31,6 +31,7 @@ function disableButton() {
 function checkInputValues() {
   if(inputTitle.value != "" && inputBody.value != ""){
     saveButton.disabled = false;
+    styleSaveActive();
     }
 }
 
@@ -38,9 +39,20 @@ function clearText(){
   inputTitle.value = "";
   inputBody.value = "";
   saveButton.disabled = true;
+  styleSaveDisable();
 }
 
+function styleSaveActive() {
+  saveButton.classList.remove('input-missing');
+  saveButton.classList.add('save-btn');
+  saveButton.classList.add('form-style');
+}
 
+function styleSaveDisable() {
+  saveButton.classList.remove('save-btn');
+  saveButton.classList.remove('form-style');
+  saveButton.classList.add('input-missing');
+}
 
 function renderNewCard() {
   savedCardGrid.innerHTML = "";
