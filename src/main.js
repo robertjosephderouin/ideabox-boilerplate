@@ -25,26 +25,6 @@ inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
 // savedCardGrid.addEventListener('click', toggleFavorite);
 
-//*Functions Go Here*
-// function favorite() {
-//   favoriteStar.classList.remove('unchecked');
-//   favoriteStar.classList.add('checked');
-// }
-//
-// function unFavorite() {
-//   favoriteStar.classList.remove('checked');
-//   favoriteStar.classList.add('unchecked');
-// }
-//
-// function toggleFavorite(event) {
-//   var newStar = event.target.closest('input');
-//   if (newStar.classList.contains('unchecked')){
-//     favorite()
-//   } else {
-//     return false;
-//   }
-// }
-
 function disableButton() {
   saveButton.disabled = true;
 }
