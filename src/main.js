@@ -19,23 +19,28 @@ var newCardArray = [];
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 
-inputTitle.addEventListener('input', checkforUserInput);
-inputBody.addEventListener('input', checkforUserInput);
+inputTitle.addEventListener('input', checkInputValues);
+inputBody.addEventListener('input', checkInputValues);
+window.addEventListener('load', disableButton);
 
 //*Functions Go Here*
-
-function checkforUserInput() {
-  
+function disableButton() {
+  saveButton.disabled = true;
 }
 
+function checkInputValues() {
+  if(inputTitle.value != "" && inputBody.value != ""){
+    saveButton.disabled = false;
+    }
+}
 
-function clearTitleText(){
+function clearText(){
   inputTitle.value = "";
+  inputBody.value = "";
+  saveButton.disabled = true;
 }
 
-function clearBodyText(){
-  inputBody.value = "";
-}
+
 
 function renderNewCard() {
   savedCardGrid.innerHTML = "";
@@ -62,8 +67,7 @@ function renderNewCard() {
 function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
   newCardArray.push(newCard);
-  clearTitleText();
-  clearBodyText();
+  clearText();
   renderNewCard();
 }
 
