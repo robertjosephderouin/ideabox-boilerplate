@@ -145,7 +145,7 @@ input[type="checkbox"] {
   width: 0;
 }
 
-input[type="checkbox"] + label {
+.unchecked + label {
   background-image: url('assets/star-active.svg');
   background-color: #1F1F3D;
   background-repeat: no-repeat;
@@ -154,7 +154,7 @@ input[type="checkbox"] + label {
   width: 25px;
 }
 
-input[type="checkbox"]:checked + label {
+.checked + label {
   background-image: url('assets/star.svg');
   background-color: #1F1F3D;
   background-repeat: no-repeat;

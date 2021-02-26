@@ -8,6 +8,8 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
+var favoriteStar = document.querySelector('#star');
+
 var newCard
 
 //*Data Goes Here*
@@ -18,12 +20,31 @@ var newCardArray = [];
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
-
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
+savedCardGrid.addEventListener('click', toggleFavorite);
 
 //*Functions Go Here*
+function favorite() {
+  favoriteStar.classList.remove('unchecked');
+  favoriteStar.classList.add('checked');
+}
+
+function unFavorite() {
+  favoriteStar.classList.remove('checked');
+  favoriteStar.classList.add('unchecked');
+}
+
+function toggleFavorite(event) {
+  var newStar = event.target.closest('input');
+  if (newStar.classList.contains('unchecked')){
+    favorite()
+  } else {
+    return false;
+  }
+}
+
 function disableButton() {
   saveButton.disabled = true;
 }
@@ -60,7 +81,7 @@ function renderNewCard() {
     savedCardGrid.insertAdjacentHTML('beforeend',
       `<article class="new-card" id=${newCardArray[i].id}>
         <div class="article-top">
-          <input type="checkbox" name="star" value="star" id="star"></input>
+          <input class="unchecked" type="checkbox" name="star" value="star" id="star"></input>
           <label for="star"></label>
           <button class="x-btn"></button>
         </div>
