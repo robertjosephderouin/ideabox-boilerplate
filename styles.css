@@ -17,7 +17,7 @@ main {
   width: 100%;
 }
 
-form {
+.add-card-form {
   background-color: #A9AAD2;
   height: 55%;
   width: 100%;
@@ -145,8 +145,19 @@ input[type="checkbox"] {
   width: 0;
 }
 
-.unchecked + label {
+input[type="checkbox"] + label {
   background-image: url('assets/star-active.svg');
+  background-color: #1F1F3D;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+input[type="checkbox"]:checked + label {
+  background-image: url('assets/star.svg');
   background-color: #1F1F3D;
   background-repeat: no-repeat;
   background-size: cover;
@@ -154,13 +165,9 @@ input[type="checkbox"] {
   width: 25px;
 }
 
-.checked + label {
-  background-image: url('assets/star.svg');
-  background-color: #1F1F3D;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 25px;
+.star-form {
+  width: 100%;
+  height: 100%;
 }
 
 .comment-btn {
