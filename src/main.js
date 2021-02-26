@@ -1,29 +1,18 @@
-//*Pseduo Code Go Here*
-//Click button to add the contents of an idea card.
-//Instansiate an Idea class
-//Have it line up next to other cards.
-
 //*Variables Go Here*
 var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
-var favoriteStar = document.querySelector('#star');
-
 var newCard
 
 //*Data Goes Here*
 var newCardArray = [];
-
-
-
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
-// savedCardGrid.addEventListener('click', toggleFavorite);
 
 function disableButton() {
   saveButton.disabled = true;
@@ -63,6 +52,7 @@ function renderNewCard() {
         <div class="article-top">
           <form class="star-form">
             <input
+              ${newCardArray[i].star ? 'checked="checked"' : ''};
               class="star"
               type="checkbox"
               name="star-${newCardArray[i].id}"
@@ -79,8 +69,11 @@ function renderNewCard() {
           <p>Comment</p>
         </div>
       </article>`);
-      var xButton = document.getElementById(newCardArray[i].id).querySelector('.x-btn');
+      var newCardElement = document.getElementById(newCardArray[i].id);
+      var xButton = newCardElement.querySelector('.x-btn');
+      var starButton = newCardElement.querySelector('.star');
       xButton.addEventListener('click', deleteSavedCard);
+      starButton.addEventListener('click', toggleFavorite);
   }
 }
 
@@ -96,7 +89,20 @@ function deleteSavedCard(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)) {
       newCardArray.splice(i, 1);
+      break;
     };
   };
   renderNewCard();
+}
+
+function toggleFavorite(event) {
+  var checkBoxElement = event.target;
+  var clickedSavedCard = event.target.closest('.new-card');
+  for (i = 0; i < newCardArray.length; i++) {
+    if (newCardArray[i].id === Number(clickedSavedCard.id)){
+      newCardArray[i].star = checkBoxElement.checked;
+      console.log(newCardArray[i]);
+      break
+    }
+  }
 }
