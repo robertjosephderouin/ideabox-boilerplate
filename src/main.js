@@ -81,6 +81,7 @@ function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
   newCardArray.push(newCard);
   clearText();
+  newCard.saveToStorage();
   renderNewCard();
 }
 

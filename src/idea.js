@@ -6,7 +6,10 @@ class Idea {
     this.star = false;
   }
   saveToStorage(){
-    //To Be Implemented
+    var stringIdea = JSON.stringify(this);
+    var stringID = this.id;
+    localStorage.setItem(stringID, stringIdea);
+    console.log(stringID);
   }
   deleteFromStorage(){
     //To Be Implemented
