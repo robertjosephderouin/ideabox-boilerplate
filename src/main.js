@@ -102,8 +102,7 @@ function deleteSavedCard(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)) {
       newCardArray.splice(i, 1);
-      newCardArray[i].saveToStorage();
-    //  break;
+      break;
     }
   }
   renderNewCard();
