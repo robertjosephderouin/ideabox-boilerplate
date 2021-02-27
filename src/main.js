@@ -4,8 +4,10 @@ var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
 var showButton = document.querySelector('#showBtn');
+var searchTextBox = document.querySelector('#searchInput');
 var ifFiltering = false;
 var ifSearching = false;
+var searchText = "";
 
 //*Data Goes Here*
 
@@ -14,9 +16,19 @@ saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
+searchTextBox.addEventListener('input', validateSearchBox);
 window.addEventListener('load', disableButton);
-window.addEventListener('load', retrieveCards)
+window.addEventListener('load', retrieveCards);
 
+function validateSearchBox(e){
+  if(e.target.value.trim() === ""){
+    ifSearching = false;
+  } else {
+    ifSearching = true;
+  }
+  searchText = e.target.value.trim();
+  renderNewCard();
+}
 
 function retrieveCards() {
   var json = localStorage.getItem('ideasArray');
@@ -64,6 +76,9 @@ function renderNewCard() {
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = newFilterArray.filter(idea => idea.star);
+  }
+  if(ifSearching){
+    newFilterArray = newFilterArray.filter(idea => idea.title.includes(searchText) || idea.body.includes(searchText));
   }
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
