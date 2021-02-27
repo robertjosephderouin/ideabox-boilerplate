@@ -3,11 +3,15 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
+var showButton = document.querySelector('#showBtn');
+var ifFiltering = false;
+var ifSearching = false;
 
 //*Data Goes Here*
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
+showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
@@ -57,37 +61,47 @@ function styleSaveDisable() {
 }
 
 function renderNewCard() {
+  var newFilterArray = newCardArray;
+  if(ifFiltering){
+    newFilterArray = findFavorites();
+  }
   savedCardGrid.innerHTML = "";
-  for (var i = 0; i < newCardArray.length; i++) {
+  for (var i = 0; i < newFilterArray.length; i++) {
     savedCardGrid.insertAdjacentHTML('beforeend',
-      `<article class="new-card" id=${newCardArray[i].id}>
+      `<article class="new-card" id=${newFilterArray[i].id}>
         <div class="article-top">
           <form class="star-form">
             <input
-              ${newCardArray[i].star ? 'checked="checked"' : ''};
+              ${newFilterArray[i].star ? 'checked="checked"' : ''};
               class="star"
               type="checkbox"
-              name="star-${newCardArray[i].id}"
-              value="star-${newCardArray[i].id}"
-              id="star-${newCardArray[i].id}"/>
-            <label for="star-${newCardArray[i].id}"></label>
+              name="star-${newFilterArray[i].id}"
+              value="star-${newFilterArray[i].id}"
+              id="star-${newFilterArray[i].id}"/>
+            <label for="star-${newFilterArray[i].id}"></label>
           </form>
           <button class="x-btn"></button>
         </div>
-        <h3>${newCardArray[i].title}</h3>
-        <p>${newCardArray[i].body}</p>
+        <h3>${newFilterArray[i].title}</h3>
+        <p>${newFilterArray[i].body}</p>
         <div class="article-bottom">
           <button class="comment-btn"></button>
           <p>Comment</p>
         </div>
       </article>`);
-      var newCardElement = document.getElementById(newCardArray[i].id);
+      var newCardElement = document.getElementById(newFilterArray[i].id);
       var xButton = newCardElement.querySelector('.x-btn');
       var starButton = newCardElement.querySelector('.star');
       xButton.addEventListener('click', deleteSavedCard);
       starButton.addEventListener('click', toggleFavorite);
   }
 }
+
+// function renderFilterArray() {
+//   if (showAllIdeas.innerText === ''){
+//
+//   }
+// }
 
 function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
@@ -118,4 +132,38 @@ function toggleFavorite(event) {
       break
     }
   }
+}
+
+function toggleIdeasFilter() {
+  if(showButton.innerText === 'Show Starred Ideas'){
+    showStarredIdeas();
+  } else {
+    showAllIdeas();
+  }
+}
+
+function findFavorites() {
+  var filteredArray = [];
+  for(var i = 0; i < newCardArray.length; i++) {
+    if(newCardArray[i].star){
+      filteredArray.push(newCardArray[i]);
+    }
+  }
+  return filteredArray;
+}
+
+function showStarredIdeas() {
+  showButton.innerText = 'Show All Ideas';
+  ifFiltering = true;
+  renderNewCard();
+  console.log(ifFiltering);
+  // newCardArray = findFavorites();   breaks code
+  // renderNewCard();
+}
+
+function showAllIdeas() {
+  showButton.innerText = 'Show Starred Ideas';
+  ifFiltering = false;
+  renderNewCard();
+  console.log(ifFiltering);
 }

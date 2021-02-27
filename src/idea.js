@@ -1,5 +1,5 @@
 var newCardArray = [];
-
+var newFilterArray = [];
 
 class Idea {
   constructor(inputTitle, inputBody, inputStar, inputID){
