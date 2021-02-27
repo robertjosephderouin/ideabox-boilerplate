@@ -3,16 +3,28 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
-var newCard
 
 //*Data Goes Here*
-var newCardArray = [];
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
+window.addEventListener('load', retrieveCards)
+
+
+function retrieveCards() {
+  var json = localStorage.getItem('ideasArray');
+  var parsedCards = JSON.parse(json);
+  for (var i = 0; i < parsedCards.length; i++) {
+    var parsedCard = parsedCards[i];
+    var newIdea = new Idea(parsedCard.title, parsedCard.body, parsedCard.star, parsedCard.id);
+    newCardArray.push(newIdea);
+  }
+  console.log(newCardArray);
+  renderNewCard();
+}
 
 function disableButton() {
   saveButton.disabled = true;
@@ -81,6 +93,7 @@ function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
   newCardArray.push(newCard);
   clearText();
+  newCard.saveToStorage();
   renderNewCard();
 }
 
@@ -89,9 +102,10 @@ function deleteSavedCard(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)) {
       newCardArray.splice(i, 1);
-      break;
-    };
-  };
+      newCardArray[i].saveToStorage();
+    //  break;
+    }
+  }
   renderNewCard();
 }
 
@@ -101,7 +115,7 @@ function toggleFavorite(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)){
       newCardArray[i].star = checkBoxElement.checked;
-      console.log(newCardArray[i]);
+      newCardArray[i].saveToStorage();
       break
     }
   }

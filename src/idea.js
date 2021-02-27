@@ -1,15 +1,20 @@
+var newCardArray = [];
+
+
 class Idea {
-  constructor(inputTitle, inputBody){
-    this.id = new Date().getMilliseconds();
+  constructor(inputTitle, inputBody, inputStar, inputID){
     this.title = inputTitle;
     this.body = inputBody;
-    this.star = false;
+    this.star = Boolean(inputStar);
+    this.id = inputID || new Date().getMilliseconds();
   }
   saveToStorage(){
-    //To Be Implemented
+
+    var stringIdea = JSON.stringify(newCardArray);
+    localStorage.setItem('ideasArray', stringIdea);
   }
   deleteFromStorage(){
-    //To Be Implemented
+    var
   }
   updateIdea(){
     //To be Implemented
