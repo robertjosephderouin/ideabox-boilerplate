@@ -14,7 +14,7 @@ class Idea {
     localStorage.setItem('ideasArray', stringIdea);
   }
   deleteFromStorage(){
-    var
+    //To be Implemented
   }
   updateIdea(){
     //To be Implemented
