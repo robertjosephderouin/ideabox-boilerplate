@@ -93,7 +93,7 @@ function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
   newCardArray.push(newCard);
   clearText();
-  newCard.saveToStorage();
+  Idea.saveToStorage();
   renderNewCard();
 }
 
@@ -101,8 +101,7 @@ function deleteSavedCard(event) {
   var clickedSavedCard = event.target.closest('.new-card');
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)) {
-      newCardArray.splice(i, 1);
-      newCardArray[i].saveToStorage();
+      Idea.deleteFromStorage(i);
       break;
     }
   }
@@ -115,7 +114,7 @@ function toggleFavorite(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)){
       newCardArray[i].star = checkBoxElement.checked;
-      newCardArray[i].saveToStorage();
+      Idea.saveToStorage();
       break
     }
   }
