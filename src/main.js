@@ -91,6 +91,10 @@ function renderNewCard() {
   }
 }
 
+function renderFilterArray() {
+  if (showAllIdeas.innerText === '')
+}
+
 function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
   newCardArray.push(newCard);
@@ -141,8 +145,8 @@ function findFavorites() {
 
 function showStarredIdeas() {
   showButton.innerText = 'Show All Ideas';
-  newCardArray = findFavorites();
-  renderNewCard();
+  // newCardArray = findFavorites();   breaks code
+  // renderNewCard();
 }
 
 function showAllIdeas() {
