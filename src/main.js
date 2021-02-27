@@ -3,16 +3,28 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
-var newCard
+
 
 //*Data Goes Here*
-var newCardArray = [];
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
+window.addEventListener('load', retrieveCards)
+
+
+function retrieveCards() {
+  var json = localStorage.getItem('ideasArray');
+  var parsedCards = JSON.parse(json);
+  for (var i = 0; i < parsedCards.length; i++) {
+    var parsedCard = parsedCards[i];
+    var newIdea = new Idea(parsedCard.title, parsedCard.body, parsedCard.star, parsedCard.id);
+    newCardArray.push(newIdea);
+  }
+  renderNewCard();
+}
 
 function disableButton() {
   saveButton.disabled = true;
