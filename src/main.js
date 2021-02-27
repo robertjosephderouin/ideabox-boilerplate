@@ -3,11 +3,13 @@ var saveButton = document.querySelector('#saveBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
+var showButton = document.querySelector('#showBtn');
 
 //*Data Goes Here*
 
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
+showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 window.addEventListener('load', disableButton);
@@ -118,4 +120,20 @@ function toggleFavorite(event) {
       break
     }
   }
+}
+
+function toggleIdeasFilter() {
+  if(showButton.innerText === 'Show Starred Ideas'){
+    showStarredIdeas();
+  } else {
+    showAllIdeas();
+  }
+}
+
+function showStarredIdeas() {
+  showButton.innerText = 'Show All Ideas';
+}
+
+function showAllIdeas() {
+  showButton.innerText = 'Show Starred Ideas';
 }
