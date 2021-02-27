@@ -63,7 +63,7 @@ function styleSaveDisable() {
 function renderNewCard() {
   var newFilterArray = newCardArray;
   if(ifFiltering){
-    newFilterArray = findFavorites();
+    newFilterArray = newFilterArray.filter(idea => idea.star);
   }
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
@@ -142,21 +142,21 @@ function toggleIdeasFilter() {
   }
 }
 
-function findFavorites() {
-  var filteredArray = [];
-  for(var i = 0; i < newCardArray.length; i++) {
-    if(newCardArray[i].star){
-      filteredArray.push(newCardArray[i]);
-    }
-  }
-  return filteredArray;
-}
+// function findFavorites() {
+//   var filteredArray = [];
+//   for(var i = 0; i < newCardArray.length; i++) {
+//     if(newCardArray[i].star){
+//       filteredArray.push(newCardArray[i]);
+//     }
+//   }
+//   return filteredArray;
+// }
 
 function showStarredIdeas() {
   showButton.innerText = 'Show All Ideas';
   ifFiltering = true;
   renderNewCard();
-  console.log(ifFiltering);
+  // console.log(ifFiltering);
   // newCardArray = findFavorites();   breaks code
   // renderNewCard();
 }
@@ -165,5 +165,5 @@ function showAllIdeas() {
   showButton.innerText = 'Show Starred Ideas';
   ifFiltering = false;
   renderNewCard();
-  console.log(ifFiltering);
+  // console.log(ifFiltering);
 }
