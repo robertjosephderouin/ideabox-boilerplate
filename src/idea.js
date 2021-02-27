@@ -8,13 +8,13 @@ class Idea {
     this.star = Boolean(inputStar);
     this.id = inputID || new Date().getMilliseconds();
   }
-  saveToStorage(){
-
+  static saveToStorage(){
     var stringIdea = JSON.stringify(newCardArray);
     localStorage.setItem('ideasArray', stringIdea);
   }
-  deleteFromStorage(){
-    //To be Implemented
+  static deleteFromStorage(index){
+    newCardArray.splice(index, 1);
+    Idea.saveToStorage();
   }
   updateIdea(){
     //To be Implemented
