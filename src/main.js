@@ -130,8 +130,19 @@ function toggleIdeasFilter() {
   }
 }
 
+function findFavorites() {
+  for(var i = 0; i < newCardArray.length; i++) {
+    if(newCardArray[i].star){
+      filterCardArray.push(newCardArray[i]);
+    }
+  }
+  return filterCardArray
+}
+
 function showStarredIdeas() {
   showButton.innerText = 'Show All Ideas';
+  newCardArray = findFavorites();
+  renderNewCard();
 }
 
 function showAllIdeas() {
