@@ -4,7 +4,6 @@ var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
 
-
 //*Data Goes Here*
 
 //*Event Listeners Go Here*
@@ -23,6 +22,7 @@ function retrieveCards() {
     var newIdea = new Idea(parsedCard.title, parsedCard.body, parsedCard.star, parsedCard.id);
     newCardArray.push(newIdea);
   }
+  console.log(newCardArray);
   renderNewCard();
 }
 
@@ -103,8 +103,8 @@ function deleteSavedCard(event) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)) {
       newCardArray.splice(i, 1);
       break;
-    };
-  };
+    }
+  }
   renderNewCard();
 }
 
@@ -114,7 +114,7 @@ function toggleFavorite(event) {
   for (i = 0; i < newCardArray.length; i++) {
     if (newCardArray[i].id === Number(clickedSavedCard.id)){
       newCardArray[i].star = checkBoxElement.checked;
-      console.log(newCardArray[i]);
+      newCardArray[i].saveToStorage();
       break
     }
   }
