@@ -16,7 +16,7 @@ showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 searchInput.addEventListener('keyup', searchIdeas);
-// searchInput.addEventListener('click', clearField)
+searchInput.addEventListener('click', clearField)
 window.addEventListener('load', disableButton);
 window.addEventListener('load', retrieveCards)
 
@@ -68,6 +68,7 @@ function styleSaveDisable() {
 }
 
 function renderNewCard() {
+  debugger
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = findFavorites();
@@ -106,12 +107,6 @@ function renderNewCard() {
       starButton.addEventListener('click', toggleFavorite);
   }
 }
-
-// function renderFilterArray() {
-//   if (showAllIdeas.innerText === ''){
-//
-//   }
-// }
 
 function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
@@ -153,6 +148,7 @@ function toggleIdeasFilter() {
 }
 
 function findFavorites() {
+  ifSearching = false;
   var filteredArray = [];
   for(var i = 0; i < newCardArray.length; i++) {
     if(newCardArray[i].star){
@@ -180,6 +176,7 @@ function showAllIdeas() {
 
 function filterIdeasByText(event) {
   ifSearching = true;
+  ifFiltering = false;
   var letters = event.target.value
   var filteredArray = [];
   for (var i = 0; i < newCardArray.length; i++){
