@@ -4,6 +4,7 @@ var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
 var showButton = document.querySelector('#showBtn');
+var searchInput = document.querySelector('#searchInput');
 var ifFiltering = false;
 var ifSearching = false;
 
@@ -14,6 +15,8 @@ saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
+searchInput.addEventListener('keyup', searchIdeas);
+// searchInput.addEventListener('click', clearField)
 window.addEventListener('load', disableButton);
 window.addEventListener('load', retrieveCards)
 
@@ -48,6 +51,10 @@ function clearText(){
   styleSaveDisable();
 }
 
+function clearField(){
+  searchInput.value = "";
+}
+
 function styleSaveActive() {
   saveButton.classList.remove('input-missing');
   saveButton.classList.add('save-btn');
@@ -64,6 +71,9 @@ function renderNewCard() {
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = findFavorites();
+  }
+  if(ifSearching){
+    newFilterArray = filterIdeasByText(event);
   }
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
@@ -166,4 +176,21 @@ function showAllIdeas() {
   ifFiltering = false;
   renderNewCard();
   console.log(ifFiltering);
+}
+
+function filterIdeasByText(event) {
+  ifSearching = true;
+  var letters = event.target.value
+  var filteredArray = [];
+  for (var i = 0; i < newCardArray.length; i++){
+    if(newCardArray[i].title.includes(letters) || newCardArray[i].body.includes(letters)) {
+      filteredArray.push(newCardArray[i])
+    }
+  }
+  return filteredArray
+}
+
+function searchIdeas() {
+  filterIdeasByText(event);
+  renderNewCard();
 }
