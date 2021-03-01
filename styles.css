@@ -18,31 +18,31 @@ main {
 }
 
 .add-card-form {
+  align-items: center;
   background-color: #A9AAD2;
-  height: 55%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  height: 55%;
+  width: 100%;
 
 }
 
 h1,
 nav {
   background-color: #1F1F3D;
+  color: white;
   font-size: 20px;
   margin-left: 10px;
-  color: white;
   width: 20%;
   min-width: 250px;
 }
 
 h2 {
-  margin-left: 10px;
-  margin-bottom: 20px;
   color: #BFBFDD;
   font-size: 13px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 h3 {
@@ -50,10 +50,10 @@ h3 {
 }
 
 section {
-  padding-top: 15px;
   background-color: #EAEAF4;
-  height: 45%;
   display: flex;
+  height: 45%;
+  padding-top: 15px;
 }
 
 input {
@@ -63,16 +63,23 @@ input {
 
 article {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   border: 2px solid #1F1F3D;
+  flex-direction: column;
   height: 230px;
-  width: 210px;
   margin-left: 10px;
   margin-right: 10px;
+  justify-content: space-between;
+  width: 210px;
 }
 
-/* Form Children*/
+/* Form */
+.form-style {
+  color: #353567;
+  font-weight: bold;
+  margin: 10px;
+  width: 50%;
+}
+
 .search-idea-container {
   display: flex;
   border: 2px solid #5356A4;
@@ -84,59 +91,53 @@ article {
 
 .search-input {
   border: none;
+  color: #5356A4;
   font-family: 'Open Sans';
   font-size: .9em;
-  color: #5356A4;
   width: 100%;
 }
 
-.form-style {
- width: 50%;
- font-weight: bold;
- margin: 10px;
- color: #353567;
-}
 
 .input-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-/* Nav Children */
+/* Navigation */
 .nav-wrapper {
-  width: 100%;
   border-top: 1px solid #5356A4;
   border-bottom: 1px solid #5356A4;
+  width: 100%;
 }
 
-/* Ideas Children */
+/* Idea Box Section*/
 article > p {
   height: 110px;
-  margin-top: 0;
   margin-left: 10px;
   margin-right: 25px;
+  margin-top: 0;
 }
 
 div > p {
   color: white;
-  font-weight: bold;
   font-size: 12px;
+  font-weight: bold;
   margin-top: 7px;
 }
 
 .article-top {
-  width: 100%;
-  height: 30px;
+  background-color: #1F1F3D;
   display: flex;
   justify-content: space-between;
-  background-color: #1F1F3D;
+  height: 30px;
+  width: 100%;
 }
 
 .article-bottom {
-  height: 30px;
   display: flex;
-  flex-direction: row;
   background-color: #5356A5;
+  flex-direction: row;
+  height: 30px;
 }
 /* Buttons */
 input[type="checkbox"] {
@@ -146,22 +147,22 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
-  background-image: url('assets/star-active.svg');
   background-color: #1F1F3D;
+  background-image: url('assets/star.svg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  width: 25px;
-  height: 25px;
   display: block;
+  height: 25px;
+  width: 25px;
 }
 
 input[type="checkbox"]:checked + label {
-  background-image: url('assets/star.svg');
   background-color: #1F1F3D;
+  background-image: url('assets/star-active.svg');
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
   width: 25px;
 }
 
@@ -171,72 +172,71 @@ input[type="checkbox"]:checked + label {
 }
 
 .comment-btn {
-  background-image: url('assets/comment.svg');
   background-color: #5356A5;
+  background-image: url('assets/comment.svg');
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
-  width: 25px;
-  height: 30px;
+  background-size: cover;
   border: none;
+  height: 30px;
+  width: 25px;
 }
 
 .x-btn {
-  background-image: url('assets/delete.svg');
   background-color: #1F1F3D;
+  background-image: url('assets/delete.svg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  width: 25px;
-  height: 30px;
   border: none;
+  height: 30px;
+  width: 25px;
 }
 
 .starred-ideas-btn {
+ background-color: #5356A5;
+ border: 1px solid #373669;
  color: white;
  font-family: Open Sans;
  font-weight: bold;
  font-size: 17px;
- background-color: #5356A5;
  height: 45px;
- width: 215px;
- padding: 12px 0 12px 0;
  margin-left: 10px;
  margin-bottom: 10px;
- border: 1px solid #373669;
+ padding: 12px 0 12px 0;
+ width: 215px;
 }
 
 .save-btn {
+ color: white;
  border: 2px solid #5356A4;
  background-color: #353567;
- height: 40px;
- color: white;
  font-size: 1em;
+ height: 40px;
 }
 
 .magnifying-glass {
-background-image: url('assets/search.svg');
-background-size: 2em;
-background-repeat: no-repeat;
-background-color: #353567;
-background-position: center;
-border: none;
-margin-right: 0;
-height: 100%;
-width: 20%;
+ background-color: #353567;
+ background-image: url('assets/search.svg');
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: 2em;
+ border: none;
+ height: 100%;
+ margin-right: 0;
+ width: 20%;
 }
 
 .input-missing {
-  border: 2px solid #5356A4;
-  height: 40px;
-  color: white;
-  font-size: 1em;
-  width: 50%;
-  font-weight: bold;
-  margin: 10px;
-  color: #353567;
   background-color: #EAEAF4;
+  border: 2px solid #5356A4;
+  color: #353567;
   cursor: help;
+  font-size: 1em;
+  font-weight: bold;
+  height: 40px;
+  margin: 10px;
+  width: 50%;
 }
 
 /* Other */
