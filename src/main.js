@@ -64,7 +64,7 @@ function styleSaveDisable() {
   saveButton.classList.add('input-missing');
 }
 
-function renderNewCard() {
+function updateArrayValue(){
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = findFavorites();
@@ -72,6 +72,11 @@ function renderNewCard() {
   if(ifSearching){
     newFilterArray = filterIdeasByText(event);
   }
+  return newFilterArray;
+}
+
+function renderNewCard() {
+  var newFilterArray = updateArrayValue();
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
     savedCardGrid.insertAdjacentHTML('beforeend',
