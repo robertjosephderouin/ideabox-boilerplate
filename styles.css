@@ -17,17 +17,6 @@ main {
   width: 100%;
 }
 
-.add-card-form {
-  background-color: #A9AAD2;
-  height: 55%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-
 h1,
 nav {
   background-color: #1F1F3D;
@@ -36,6 +25,10 @@ nav {
   color: white;
   width: 20%;
   min-width: 250px;
+}
+
+nav {
+  height: 100%;
 }
 
 h2 {
@@ -50,10 +43,8 @@ h3 {
 }
 
 section {
-  padding-top: 15px;
   background-color: #EAEAF4;
-  height: 45%;
-  display: flex;
+  height: 100%;
 }
 
 input {
@@ -70,9 +61,21 @@ article {
   width: 210px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 20px;
 }
 
-/* Form Children*/
+/* Form */
+
+.add-card-form {
+  background-color: #A9AAD2;
+  height: 55%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-idea-container {
   display: flex;
   border: 2px solid #5356A4;
@@ -102,14 +105,24 @@ article {
   flex-direction: column;
 }
 
-/* Nav Children */
+/* Nav */
+
 .nav-wrapper {
   width: 100%;
   border-top: 1px solid #5356A4;
   border-bottom: 1px solid #5356A4;
 }
 
-/* Ideas Children */
+/* Ideas Box */
+
+.saved-card-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+}
+
 article > p {
   height: 110px;
   margin-top: 0;
@@ -139,6 +152,7 @@ div > p {
   background-color: #5356A5;
 }
 /* Buttons */
+
 input[type="checkbox"] {
   opacity: 0;
   position: fixed;
@@ -146,7 +160,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
-  background-image: url('assets/star-active.svg');
+  background-image: url('assets/star.svg');
   background-color: #1F1F3D;
   background-repeat: no-repeat;
   background-size: cover;
@@ -157,7 +171,7 @@ input[type="checkbox"] + label {
 }
 
 input[type="checkbox"]:checked + label {
-  background-image: url('assets/star.svg');
+  background-image: url('assets/star-active.svg');
   background-color: #1F1F3D;
   background-repeat: no-repeat;
   background-size: cover;
@@ -237,10 +251,4 @@ width: 20%;
   color: #353567;
   background-color: #EAEAF4;
   cursor: help;
-}
-
-/* Other */
-
-.hidden {
-  display: none;
 }
