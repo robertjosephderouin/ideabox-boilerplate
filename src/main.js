@@ -8,8 +8,6 @@ var searchInput = document.querySelector('#searchInput');
 var ifFiltering = false;
 var ifSearching = false;
 
-//*Data Goes Here*
-
 //*Event Listeners Go Here*
 saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
@@ -29,7 +27,6 @@ function retrieveCards() {
     var newIdea = new Idea(parsedCard.title, parsedCard.body, parsedCard.star, parsedCard.id);
     newCardArray.push(newIdea);
   }
-  console.log(newCardArray);
   renderNewCard();
 }
 
@@ -138,23 +135,23 @@ function toggleFavorite(event) {
   }
 }
 
+function showIdeas(buttonText, filtering) {
+  showButton.innerText = buttonText;
+  ifFiltering = filtering;
+  renderNewCard();
+}
+
 function toggleIdeasFilter() {
   if(showButton.innerText === 'Show Starred Ideas'){
-    showStarredIdeas();
+    showIdeas('Show All Ideas', true);
   } else {
-    showAllIdeas();
+    showIdeas('Show Starred Ideas', false);
   }
 }
 
 function findFavorites() {
   ifSearching = false;
-  var filteredArray = [];
-  for(var i = 0; i < newCardArray.length; i++) {
-    if(newCardArray[i].star){
-      filteredArray.push(newCardArray[i]);
-    }
-  }
-  return filteredArray;
+  return searchFavorites();
 }
 
 function searchFavorites() {
@@ -167,25 +164,13 @@ function searchFavorites() {
  return filteredArray;
 }
 
-
-function showStarredIdeas() {
-  showButton.innerText = 'Show All Ideas';
-  ifFiltering = true;
+function showIdeas(buttonText, filtering) {
+  showButton.innerText = buttonText;
+  ifFiltering = filtering;
   renderNewCard();
-  console.log(ifFiltering);
-  // newCardArray = findFavorites();   breaks code
-  // renderNewCard();
-}
-
-function showAllIdeas() {
-  showButton.innerText = 'Show Starred Ideas';
-  ifFiltering = false;
-  renderNewCard();
-  console.log(ifFiltering);
 }
 
 function searchIdeas() {
-  debugger
   filterIdeasByText(event);
   renderNewCard();
 }
@@ -195,13 +180,13 @@ function filterIdeasByText(event) {
   ifFiltering = false;
   if(showButton.innerText === 'Show All Ideas'){
     favArray = searchFavorites()
-    return whichArray(favArray)
+    return searchArray(favArray)
   } else {
-    return whichArray(newCardArray)
+    return searchArray(newCardArray)
   }
 }
 
-function whichArray(array) {
+function searchArray(array) {
   var letters = event.target.value
   var filteredArray = [];
   for (var i = 0; i < array.length; i++){
