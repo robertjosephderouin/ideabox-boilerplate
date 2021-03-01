@@ -17,17 +17,6 @@ main {
   width: 100%;
 }
 
-.add-card-form {
-  align-items: center;
-  background-color: #A9AAD2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 55%;
-  width: 100%;
-
-}
-
 h1,
 nav {
   background-color: #1F1F3D;
@@ -36,6 +25,10 @@ nav {
   margin-left: 10px;
   width: 20%;
   min-width: 250px;
+}
+
+nav {
+  height: 100%;
 }
 
 h2 {
@@ -51,9 +44,7 @@ h3 {
 
 section {
   background-color: #EAEAF4;
-  display: flex;
-  height: 45%;
-  padding-top: 15px;
+  height: 100%;
 }
 
 input {
@@ -68,6 +59,7 @@ article {
   height: 230px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 20px;
   justify-content: space-between;
   width: 210px;
 }
@@ -78,6 +70,17 @@ article {
   font-weight: bold;
   margin: 10px;
   width: 50%;
+}
+
+.add-card-form {
+  align-items: center;
+  background-color: #A9AAD2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 55%;
+  width: 100%;
+
 }
 
 .search-idea-container {
@@ -111,6 +114,14 @@ article {
 }
 
 /* Idea Box Section*/
+.saved-card-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+}
+
 article > p {
   height: 110px;
   margin-left: 10px;
