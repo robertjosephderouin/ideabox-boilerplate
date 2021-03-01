@@ -4,6 +4,7 @@ var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
 var savedCardGrid = document.querySelector('#savedCardGrid');
 var showButton = document.querySelector('#showBtn');
+var searchInput = document.querySelector('#searchInput');
 var ifFiltering = false;
 var ifSearching = false;
 
@@ -14,6 +15,8 @@ saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
+searchInput.addEventListener('keyup', searchIdeas);
+searchInput.addEventListener('click', clearField)
 window.addEventListener('load', disableButton);
 window.addEventListener('load', retrieveCards)
 
@@ -48,6 +51,10 @@ function clearText(){
   styleSaveDisable();
 }
 
+function clearField(){
+  searchInput.value = "";
+}
+
 function styleSaveActive() {
   saveButton.classList.remove('input-missing');
   saveButton.classList.add('save-btn');
@@ -64,6 +71,9 @@ function renderNewCard() {
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = findFavorites();
+  }
+  if(ifSearching){
+    newFilterArray = filterIdeasByText(event);
   }
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
@@ -96,12 +106,6 @@ function renderNewCard() {
       starButton.addEventListener('click', toggleFavorite);
   }
 }
-
-// function renderFilterArray() {
-//   if (showAllIdeas.innerText === ''){
-//
-//   }
-// }
 
 function createNewCard(){
   newCard = new Idea(inputTitle.value, inputBody.value);
@@ -143,6 +147,7 @@ function toggleIdeasFilter() {
 }
 
 function findFavorites() {
+  ifSearching = false;
   var filteredArray = [];
   for(var i = 0; i < newCardArray.length; i++) {
     if(newCardArray[i].star){
@@ -151,6 +156,17 @@ function findFavorites() {
   }
   return filteredArray;
 }
+
+function searchFavorites() {
+ var filteredArray = [];
+ for(var i = 0; i < newCardArray.length; i++) {
+   if(newCardArray[i].star){
+     filteredArray.push(newCardArray[i]);
+   }
+ }
+ return filteredArray;
+}
+
 
 function showStarredIdeas() {
   showButton.innerText = 'Show All Ideas';
@@ -166,4 +182,32 @@ function showAllIdeas() {
   ifFiltering = false;
   renderNewCard();
   console.log(ifFiltering);
+}
+
+function searchIdeas() {
+  debugger
+  filterIdeasByText(event);
+  renderNewCard();
+}
+
+function filterIdeasByText(event) {
+  ifSearching = true;
+  ifFiltering = false;
+  if(showButton.innerText === 'Show All Ideas'){
+    favArray = searchFavorites()
+    return whichArray(favArray)
+  } else {
+    return whichArray(newCardArray)
+  }
+}
+
+function whichArray(array) {
+  var letters = event.target.value
+  var filteredArray = [];
+  for (var i = 0; i < array.length; i++){
+    if(array[i].title.includes(letters) || array[i].body.includes(letters)) {
+      filteredArray.push(array[i])
+    }
+  }
+  return filteredArray
 }
