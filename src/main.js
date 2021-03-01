@@ -1,22 +1,20 @@
-//*Variables Go Here*
-var saveButton = document.querySelector('#saveBtn');
+var showButton = document.querySelector('#showBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
-var savedCardGrid = document.querySelector('#savedCardGrid');
-var showButton = document.querySelector('#showBtn');
+var saveButton = document.querySelector('#saveBtn');
 var searchInput = document.querySelector('#searchInput');
+var savedCardGrid = document.querySelector('#savedCardGrid');
 var ifFiltering = false;
 var ifSearching = false;
 
-//*Event Listeners Go Here*
+window.addEventListener('load', disableButton);
+window.addEventListener('load', retrieveCards)
 saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 searchInput.addEventListener('keyup', searchIdeas);
 searchInput.addEventListener('click', clearField)
-window.addEventListener('load', disableButton);
-window.addEventListener('load', retrieveCards)
 
 
 function retrieveCards() {
@@ -52,16 +50,24 @@ function clearField(){
   searchInput.value = "";
 }
 
+function classListRemove(element) {
+  saveButton.classList.remove(element);
+}
+
+function classListAdd(element){
+  saveButton.classList.add(element);
+}
+
 function styleSaveActive() {
-  saveButton.classList.remove('input-missing');
-  saveButton.classList.add('save-btn');
-  saveButton.classList.add('form-style');
+  classListRemove('input-missing');
+  classListAdd('save-btn');
+  classListAdd('form-style');
 }
 
 function styleSaveDisable() {
-  saveButton.classList.remove('save-btn');
-  saveButton.classList.remove('form-style');
-  saveButton.classList.add('input-missing');
+  classListRemove('save-btn');
+  classListRemove('form-style');
+  classListAdd('input-missing');
 }
 
 function updateArrayValue(){
@@ -167,12 +173,6 @@ function searchFavorites() {
    }
  }
  return filteredArray;
-}
-
-function showIdeas(buttonText, filtering) {
-  showButton.innerText = buttonText;
-  ifFiltering = filtering;
-  renderNewCard();
 }
 
 function searchIdeas() {

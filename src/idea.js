@@ -16,7 +16,4 @@ class Idea {
     newCardArray.splice(index, 1);
     Idea.saveToStorage();
   }
-  updateIdea(){
-    //To be Implemented
-  }
 }
