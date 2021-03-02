@@ -1,24 +1,20 @@
-//*Variables Go Here*
-var saveButton = document.querySelector('#saveBtn');
+var showButton = document.querySelector('#showBtn');
 var inputTitle = document.querySelector('#titleInput');
 var inputBody = document.querySelector('#bodyInput');
-var savedCardGrid = document.querySelector('#savedCardGrid');
-var showButton = document.querySelector('#showBtn');
+var saveButton = document.querySelector('#saveBtn');
 var searchInput = document.querySelector('#searchInput');
+var savedCardGrid = document.querySelector('#savedCardGrid');
 var ifFiltering = false;
 var ifSearching = false;
 
-//*Data Goes Here*
-
-//*Event Listeners Go Here*
+window.addEventListener('load', disableButton);
+window.addEventListener('load', retrieveCards)
 saveButton.addEventListener('click', createNewCard);
 showButton.addEventListener('click', toggleIdeasFilter);
 inputTitle.addEventListener('input', checkInputValues);
 inputBody.addEventListener('input', checkInputValues);
 searchInput.addEventListener('keyup', searchIdeas);
 searchInput.addEventListener('click', clearField)
-window.addEventListener('load', disableButton);
-window.addEventListener('load', retrieveCards)
 
 
 function retrieveCards() {
@@ -29,7 +25,6 @@ function retrieveCards() {
     var newIdea = new Idea(parsedCard.title, parsedCard.body, parsedCard.star, parsedCard.id);
     newCardArray.push(newIdea);
   }
-  console.log(newCardArray);
   renderNewCard();
 }
 
@@ -55,19 +50,27 @@ function clearField(){
   searchInput.value = "";
 }
 
+function classListRemove(element) {
+  saveButton.classList.remove(element);
+}
+
+function classListAdd(element){
+  saveButton.classList.add(element);
+}
+
 function styleSaveActive() {
-  saveButton.classList.remove('input-missing');
-  saveButton.classList.add('save-btn');
-  saveButton.classList.add('form-style');
+  classListRemove('input-missing');
+  classListAdd('save-btn');
+  classListAdd('form-style');
 }
 
 function styleSaveDisable() {
-  saveButton.classList.remove('save-btn');
-  saveButton.classList.remove('form-style');
-  saveButton.classList.add('input-missing');
+  classListRemove('save-btn');
+  classListRemove('form-style');
+  classListAdd('input-missing');
 }
 
-function renderNewCard() {
+function updateArrayValue(){
   var newFilterArray = newCardArray;
   if(ifFiltering){
     newFilterArray = findFavorites();
@@ -75,6 +78,11 @@ function renderNewCard() {
   if(ifSearching){
     newFilterArray = filterIdeasByText(event);
   }
+  return newFilterArray;
+}
+
+function renderNewCard() {
+  var newFilterArray = updateArrayValue();
   savedCardGrid.innerHTML = "";
   for (var i = 0; i < newFilterArray.length; i++) {
     savedCardGrid.insertAdjacentHTML('beforeend',
@@ -138,23 +146,23 @@ function toggleFavorite(event) {
   }
 }
 
+function showIdeas(buttonText, filtering) {
+  showButton.innerText = buttonText;
+  ifFiltering = filtering;
+  renderNewCard();
+}
+
 function toggleIdeasFilter() {
   if(showButton.innerText === 'Show Starred Ideas'){
-    showStarredIdeas();
+    showIdeas('Show All Ideas', true);
   } else {
-    showAllIdeas();
+    showIdeas('Show Starred Ideas', false);
   }
 }
 
 function findFavorites() {
   ifSearching = false;
-  var filteredArray = [];
-  for(var i = 0; i < newCardArray.length; i++) {
-    if(newCardArray[i].star){
-      filteredArray.push(newCardArray[i]);
-    }
-  }
-  return filteredArray;
+  return searchFavorites();
 }
 
 function searchFavorites() {
@@ -167,25 +175,7 @@ function searchFavorites() {
  return filteredArray;
 }
 
-
-function showStarredIdeas() {
-  showButton.innerText = 'Show All Ideas';
-  ifFiltering = true;
-  renderNewCard();
-  console.log(ifFiltering);
-  // newCardArray = findFavorites();   breaks code
-  // renderNewCard();
-}
-
-function showAllIdeas() {
-  showButton.innerText = 'Show Starred Ideas';
-  ifFiltering = false;
-  renderNewCard();
-  console.log(ifFiltering);
-}
-
 function searchIdeas() {
-  debugger
   filterIdeasByText(event);
   renderNewCard();
 }
@@ -195,13 +185,13 @@ function filterIdeasByText(event) {
   ifFiltering = false;
   if(showButton.innerText === 'Show All Ideas'){
     favArray = searchFavorites()
-    return whichArray(favArray)
+    return searchArray(favArray)
   } else {
-    return whichArray(newCardArray)
+    return searchArray(newCardArray)
   }
 }
 
-function whichArray(array) {
+function searchArray(array) {
   var letters = event.target.value
   var filteredArray = [];
   for (var i = 0; i < array.length; i++){
